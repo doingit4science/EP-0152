@@ -34,6 +34,12 @@
         pip3 install rpi-lgpio
         ```
 
+3. Exit `sudo`:
+
+    ```bash
+    exit
+    ```
+
 ## Fan Control
 
 I've added [@franganghi](https://github.com/franganghi)'s version of [Raspberry-Pi5-PWM-Fan-Control](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control) as a submodule to this repository.
