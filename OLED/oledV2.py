@@ -1,3 +1,6 @@
+# Credit to @AmazonShopper (https://www.amazon.com/gp/profile/amzn1.account.AH6T6UZJDFOPJJFIU7NEEZSCIVKA/)
+#  Source Code Updates (https://www.amazon.com/gp/customer-reviews/R2X09M6QTQ2GJC)
+
 import time
 import board
 import busio
@@ -51,31 +54,8 @@ while True:
     draw.text((x, top+16), "{}".format(mem.decode('utf-8')), font=font, fill=255)
     draw.text((x, top+24), "{}".format(temp.decode('utf-8')), font=font, fill=255)
 
+    # Display image
     oled.image(image)
-    #oled.display()
     oled.show()
+
     time.sleep(3)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

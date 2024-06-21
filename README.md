@@ -1,6 +1,10 @@
-# 52Pi EP-0152 Raspberry Pi Fan Expansion Board / GeeekPi Fan Hat - **UPDATED for RPi 5**
+# 52Pi EP-0152 Raspberry Pi Fan Expansion Board - _UPDATED for Raspberry Pi 5_
 
-Updated source code for the [52Pi EP-0152 Raspberry Pi Fan Expansion Board](https://52pi.com/products/raspberry-pi-cooling-fan-expansion-board-plus-0-91-oled-v1-0-compatible-for-raspberry-pi-4b-3b-3b-2b), sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date. The code in this repository is compatible with the following revisions and Bookworm:
+Updated source code for the [52Pi EP-0152 Raspberry Pi Fan Expansion Board](https://52pi.com/products/raspberry-pi-cooling-fan-expansion-board-plus-0-91-oled-v1-0-compatible-for-raspberry-pi-4b-3b-3b-2b), sold on Amazon as [GeeekPi Fan Hat for Raspberry Pi 4 Model B, PWM Fan GPIO Expansion Board with 0.91inch OLED Display for Raspberry Pi 4B/3B+/3B/2B](https://a.co/d/0fnQFZCU).
+
+The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date, as it won't work for the Raspberry Pi 5 and doesn't use the [PEP 668 specification](https://peps.python.org/pep-0668/), which is now [required for Rasberry Pi OS](http://rptl.io/venv).
+
+This repository is compatible with the following Raspberry Pi versions on [Raspberry Pi OS (64-bit) / Debian GNU/Linux 12 (bookworm)](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit):
 
 - Raspberry Pi 5B ( :white_check_mark: - Tested)
 - Raspberry Pi 4B ( :white_check_mark: - Tested)
@@ -34,7 +38,7 @@ Updated source code for the [52Pi EP-0152 Raspberry Pi Fan Expansion Board](http
         pip3 install rpi-lgpio
         ```
 
-3. Exit `sudo`:
+3. Remember to exit from `sudo -i`:
 
     ```bash
     exit
@@ -42,9 +46,14 @@ Updated source code for the [52Pi EP-0152 Raspberry Pi Fan Expansion Board](http
 
 ## Fan Control
 
-I've added [@franganghi](https://github.com/franganghi)'s version of [Raspberry-Pi5-PWM-Fan-Control](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control) as a submodule to this repository.
+I've added [@franganghi](https://github.com/franganghi)'s version of [Raspberry-Pi5-PWM-Fan-Control](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control) as a submodule to this repository. To pull the submodule after cloning this repository, run:
 
-- Follow the instructions listed in the [README](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control/tree/master?tab=readme-ov-file#raspberry-pi5-pwm-fan-control) to install [as a Linux service](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control/tree/master?tab=readme-ov-file#as-a-service).
+```bash
+cd EP-0152
+git submodule update --init --recursive
+```
+
+After doing so, follow the instructions listed in the [README](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control/tree/master?tab=readme-ov-file#raspberry-pi5-pwm-fan-control) to install [as a Linux service](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control/tree/master?tab=readme-ov-file#as-a-service).
 
 ## PWM LEDs
 
@@ -76,7 +85,7 @@ $ sudo systemctl status ep0152ledpwm.service
              ├─2701 /bin/bash /opt/EP-0152/LEDs/LEDsV2.sh
              └─2710 python3 /opt/EP-0152/LEDs/LEDsV2.py
 
-Jun 21 10:34:34 ussyukon systemd[1]: Started ep0152ledpwm.service - EP-0152 LEDs PWM Pulse.
+Jun 21 10:34:34 host systemd[1]: Started ep0152ledpwm.service - EP-0152 LEDs PWM Pulse.
 ```
 
 ### LEDs Uninstallation
@@ -90,6 +99,8 @@ sudo rm -rf /opt/EP-0152/LEDs
 ```
 
 ## OLED Screen
+
+Credit to [@AmazonShopper](https://www.amazon.com/gp/profile/amzn1.account.AH6T6UZJDFOPJJFIU7NEEZSCIVKA/) for [providing the edits](https://www.amazon.com/gp/customer-reviews/R2X09M6QTQ2GJC) to the original code.
 
 ### OLED Installation
 
@@ -120,7 +131,7 @@ $ sudo systemctl status ep0152oled.service
              ├─2703 /bin/bash /opt/EP-0152/OLED/OLED.sh
              └─2711 python3 /opt/EP-0152/OLED/oledV2.py
 
-Jun 21 10:34:34 ussyukon systemd[1]: Started ep0152oled.service - EP-0152 OLED Monitor.
+Jun 21 10:34:34 host systemd[1]: Started ep0152oled.service - EP-0152 OLED Monitor.
 ```
 
 ### OLED Uninstallation
