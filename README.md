@@ -1,12 +1,15 @@
 # 52Pi EP-0152 Raspberry Pi Fan Expansion Board / GeeekPi Fan Hat - **UPDATED for RPi 5**
-52Pi EP-0152 Raspberry Pi Fan Expansion Board, sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date. The code in this repository is compatible with the following revisions and Bookworm:
 
-<img style="float: right;" width="300" height="300" src="https://wiki.52pi.com/images/e/e6/OLEDFAN%E6%B8%85%E5%8D%95.jpg">
+52Pi EP-0152 Raspberry Pi Fan Expansion Board, sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date. The code in this repository is compatible with the following revisions and Bookworm:
 
 - Raspberry Pi 5B (:white_check_mark: - Tested)
 - Raspberry Pi 4B (:white_check_mark: - Tested)
 - Raspberry Pi 3B+/3B (:question: - Untested)
 - Raspberry Pi 2B (:question: - Untested)
+
+## Assembly Steps
+
+[![How to assemble the Fan hat.](https://wiki.52pi.com/images/thumb/4/4a/Oledfan%E5%AE%89%E8%A3%85.jpg/800px-Oledfan%E5%AE%89%E8%A3%85.jpg "52Pi EP-0152 Assembly")](https://wiki.52pi.com/index.php?title=EP-0152)
 
 ## Python Requirements
 
@@ -19,7 +22,7 @@
     ```
 
 2. Install `pip3` packages:
-    
+
     ```bash
     pip3 install pillow adafruit_circuitPython_ssd1306
     ```
@@ -32,14 +35,14 @@
         ```
 
 ## Fan Control
+
 I've added [@franganghi](https://github.com/franganghi)'s version of [Raspberry-Pi5-PWM-Fan-Control](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control) as a submodule to this repository.
 
 - Follow the instructions listed in the [README](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control/tree/master?tab=readme-ov-file#raspberry-pi5-pwm-fan-control) to install [as a Linux service](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control/tree/master?tab=readme-ov-file#as-a-service).
 
-
 ## PWM LEDs
 
-### Installation
+### LEDs Installation
 
 ```bash
 cd EP-0152/LEDs
@@ -53,7 +56,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now ep0152ledpwm.service
 ```
 
-### Check status
+### LEDs Check status
 
 ```bash
 $ sudo systemctl status ep0152ledpwm.service
@@ -70,7 +73,7 @@ $ sudo systemctl status ep0152ledpwm.service
 Jun 21 10:34:34 ussyukon systemd[1]: Started ep0152ledpwm.service - EP-0152 LEDs PWM Pulse.
 ```
 
-### Uninstallation
+### LEDs Uninstallation
 
 ```bash
 sudo systemctl stop ep0152ledpwm.service
@@ -82,7 +85,7 @@ sudo rm -rf /opt/EP-0152/LEDs
 
 ## OLED Screen
 
-### Installation
+### OLED Installation
 
 ```bash
 cd EP-0152/OLED
@@ -97,8 +100,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now ep0152oled.service
 ```
 
-
-### Check Status
+### OLED Check Status
 
 ```bash
 $ sudo systemctl status ep0152oled.service
@@ -115,7 +117,7 @@ $ sudo systemctl status ep0152oled.service
 Jun 21 10:34:34 ussyukon systemd[1]: Started ep0152oled.service - EP-0152 OLED Monitor.
 ```
 
-### Uninstallation
+### OLED Uninstallation
 
 ```bash
 sudo systemctl stop ep0152oled.service
