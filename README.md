@@ -24,7 +24,7 @@ Updated source code for the [52Pi EP-0152 Raspberry Pi Fan Expansion Board](http
 2. Install `pip3` packages:
 
     ```bash
-    pip3 install pillow adafruit_circuitPython_ssd1306
+    pip3 install board busio pillow adafruit_circuitPython_ssd1306
     ```
 
     - For **Raspbery Pi 5**:
