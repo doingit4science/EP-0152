@@ -1,7 +1,7 @@
-# EP-0152 Fan Hat - **UPDATED for RPi 5**
-EP-0152 Fan Hat, sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date. The code in this repository is compatible with the following revisions and Bookworm:
+# 52Pi EP-0152 Raspberry Pi Fan Expansion Board / GeeekPi Fan Hat - **UPDATED for RPi 5**
+52Pi EP-0152 Raspberry Pi Fan Expansion Board, sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date. The code in this repository is compatible with the following revisions and Bookworm:
 
-<img style="float: right;" src="https://wiki.52pi.com/images/e/e6/OLEDFAN%E6%B8%85%E5%8D%95.jpg">
+<img style="float: right;" width="300" height="300" src="https://wiki.52pi.com/images/e/e6/OLEDFAN%E6%B8%85%E5%8D%95.jpg">
 
 - Raspberry Pi 5B (:white_check_mark: - Tested)
 - Raspberry Pi 4B (:white_check_mark: - Tested)
@@ -30,12 +30,6 @@ EP-0152 Fan Hat, sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). T
         pip3 uninstall RPI.GPIO
         pip3 install rpi-lgpio
         ```
-
-### Uninstallation of Python VEnv
-
-```bash
-sudo rm -rf /opt/EP-0152
-```
 
 ## Fan Control
 I've added [@franganghi](https://github.com/franganghi)'s version of [Raspberry-Pi5-PWM-Fan-Control](https://github.com/franganghi/Raspberry-Pi5-PWM-Fan-Control) as a submodule to this repository.
@@ -129,4 +123,10 @@ sudo systemctl disable ep0152oled.service
 sudo systemctl daemon-reload
 sudo rm /lib/systemd/system/ep0152oled.service
 sudo rm -rf /opt/EP-0152/OLED
+```
+
+## Uninstallation of Python VEnv
+
+```bash
+sudo rm -rf /opt/EP-0152
 ```
