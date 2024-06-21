@@ -1,6 +1,6 @@
 # 52Pi EP-0152 Raspberry Pi Fan Expansion Board / GeeekPi Fan Hat - **UPDATED for RPi 5**
 
-52Pi EP-0152 Raspberry Pi Fan Expansion Board, sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date. The code in this repository is compatible with the following revisions and Bookworm:
+Updated source code for the [52Pi EP-0152 Raspberry Pi Fan Expansion Board](https://52pi.com/products/raspberry-pi-cooling-fan-expansion-board-plus-0-91-oled-v1-0-compatible-for-raspberry-pi-4b-3b-3b-2b), sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date. The code in this repository is compatible with the following revisions and Bookworm:
 
 - Raspberry Pi 5B ( :white_check_mark: - Tested)
 - Raspberry Pi 4B ( :white_check_mark: - Tested)
