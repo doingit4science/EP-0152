@@ -2,10 +2,10 @@
 
 52Pi EP-0152 Raspberry Pi Fan Expansion Board, sold on Amazon as [GeeekPi Fan Hat](https://a.co/d/0fnQFZCU). The [original code](https://wiki.52pi.com/index.php?title=EP-0152) listed for the fan hat is woefully out of date. The code in this repository is compatible with the following revisions and Bookworm:
 
-- Raspberry Pi 5B (:white_check_mark: - Tested)
-- Raspberry Pi 4B (:white_check_mark: - Tested)
-- Raspberry Pi 3B+/3B (:question: - Untested)
-- Raspberry Pi 2B (:question: - Untested)
+- Raspberry Pi 5B ( :white_check_mark: - Tested)
+- Raspberry Pi 4B ( :white_check_mark: - Tested)
+- Raspberry Pi 3B+/3B ( :question: - Untested)
+- Raspberry Pi 2B ( :question: - Untested)
 
 ## Assembly Steps
 
@@ -62,7 +62,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now ep0152ledpwm.service
 ```
 
-### LEDs Check status
+### LEDs Check Status
 
 ```bash
 $ sudo systemctl status ep0152ledpwm.service
