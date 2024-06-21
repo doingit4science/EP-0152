@@ -1,0 +1,12 @@
+[Unit]
+Description=EP-0152 LEDs PWM Pulse
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/opt/EP-0152/LEDs/LEDsV2.sh
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+

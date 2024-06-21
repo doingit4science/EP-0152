@@ -1,0 +1,12 @@
+[Unit]
+Description=EP-0152 OLED Monitor
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/opt/EP-0152/OLED/OLED.sh
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+
