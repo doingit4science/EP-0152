@@ -10,7 +10,9 @@ GPIO.setwarnings(False)
 
 for l in leds:
     GPIO.setup(l, GPIO.OUT)
-    pwms.append(GPIO.PWM(l, 50))
+    pwms.append(GPIO.PWM(l, 50))  # Setting frequency to 50Hz
+
+print("Starting EP-0152 PWM LED Pulse")
 
 for p in pwms:
     p.start(0)
@@ -25,11 +27,8 @@ try:
             for p in pwms:
                 p.ChangeDutyCycle(dc)
             time.sleep(0.1)
-except KeyboardInterrupt:
-    pass
-
-for p in pwms:
-    p.stop()
-GPIO.cleanup()
-print("BYE")
-
+finally:
+    for p in pwms:
+        p.stop()
+    GPIO.cleanup()
+    print("Ended EP-0152 PWM LED Pulse")

@@ -32,30 +32,38 @@ top = padding
 bottom = height - padding
 x = 0
 
-while True:
-    draw.rectangle((0,0,width,height), outline=0, fill=0)
-    cmd = "hostname -I | cut -d\' \' -f1" 
-    ip = subprocess.check_output(cmd, shell=True)
+print("Starting EP-0152 OLED Monitor")
 
-    cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %s%%\", $(NF-2)*100}'"
-    cpu = subprocess.check_output(cmd, shell=True)
+try:
+    while True:
+        draw.rectangle((0,0,width,height), outline=0, fill=0)
+        cmd = "hostname -I | cut -d\' \' -f1" 
+        ip = subprocess.check_output(cmd, shell=True)
 
-    cmd = "free -m | awk 'NR==2{printf \"Mem: %.2f/%.2fGB %.2f%%\", $3/1024, $2/1024, $3*100/$2 }'"
-    mem = subprocess.check_output(cmd, shell=True)
+        cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %s%%\", $(NF-2)*100}'"
+        cpu = subprocess.check_output(cmd, shell=True)
 
-    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3, $2, $5}'"
-    disk = subprocess.check_output(cmd, shell=True)
+        cmd = "free -m | awk 'NR==2{printf \"Mem: %.2f/%.2fGB %.2f%%\", $3/1024, $2/1024, $3*100/$2 }'"
+        mem = subprocess.check_output(cmd, shell=True)
 
-    cmd = "vcgencmd measure_temp"
-    temp = subprocess.check_output(cmd, shell=True)
+        cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3, $2, $5}'"
+        disk = subprocess.check_output(cmd, shell=True)
 
-    draw.text((x, top), "IP: {}".format(ip.decode('utf-8')), font=font, fill=255)
-    draw.text((x, top+8), "{}".format(cpu.decode('utf-8')), font=font, fill=255)
-    draw.text((x, top+16), "{}".format(mem.decode('utf-8')), font=font, fill=255)
-    draw.text((x, top+24), "{}".format(temp.decode('utf-8')), font=font, fill=255)
+        cmd = "vcgencmd measure_temp"
+        temp = subprocess.check_output(cmd, shell=True)
 
-    # Display image
-    oled.image(image)
+        draw.text((x, top), "IP: {}".format(ip.decode('utf-8')), font=font, fill=255)
+        draw.text((x, top+8), "{}".format(cpu.decode('utf-8')), font=font, fill=255)
+        draw.text((x, top+16), "{}".format(mem.decode('utf-8')), font=font, fill=255)
+        draw.text((x, top+24), "{}".format(temp.decode('utf-8')), font=font, fill=255)
+
+        # Display image
+        oled.image(image)
+        oled.show()
+
+        time.sleep(3)
+finally:
+    # Clear display
+    oled.fill(0)
     oled.show()
-
-    time.sleep(3)
+    print("Ended EP-0152 OLED Monitor")
