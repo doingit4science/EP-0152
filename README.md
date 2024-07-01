@@ -28,7 +28,7 @@ This repository is compatible with the following Raspberry Pi versions on [Raspb
 2. Install `pip3` packages:
 
     ```bash
-    pip3 install board busio pillow adafruit_circuitPython_ssd1306
+    pip3 install board pillow adafruit_circuitPython_ssd1306
     ```
 
     - For **Raspbery Pi 5**:
