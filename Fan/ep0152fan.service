@@ -1,0 +1,11 @@
+[Unit]
+Description=EP-0152 Fan control
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/sbin/fan_control.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
